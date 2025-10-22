@@ -77,14 +77,8 @@ Massive thanks to *Tan Han Wei* for his open-source contribution, which made rap
 
 ---
 
-## 🧭 Vision
+<h2 align="center">
+✨ <strong>Octopus doesn’t just compare content,<br>
+it compares vibes</strong> ✨
+</h2>
 
-Octopus reimagines browsing as an emotional experience, not just an informational one. It’s your **AI compass for digital clarity**, helping you:
-
-> **Choose better. Feel lighter. Think clearly.**
-
----
-
-## 🪄 Tagline
-
-> **Octopus doesn’t just compare content, it compares vibes.**
