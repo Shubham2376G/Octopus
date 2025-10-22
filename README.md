@@ -6,13 +6,15 @@
 
 ## 💡 What It Does
 
+![Screenshot](images/class.png)
+
 Octopus connects with Chrome’s built-in **Gemini Nano Prompt API** to understand your emotional context and compare open tabs or websites accordingly. It can:
 
 * 🧘 **Calm Mode:** When you feel overwhelmed, Octopus compares tabs to find the simplest, most peaceful one.
 * 🔍 **Clarity Mode:** When you feel confused, it highlights the most useful, actionable tab.
 * 🔥 **Spark Mode:** When you feel unmotivated, it picks the tab that’s most inspiring and energizing.
 
-Not just that, Octopus can also **rewrite webpages** to match your chosen vibe, helping you process content in a tone that feels right for you.
+**✨ Not just that, Octopus can also rewrite webpages to match your chosen vibe, helping you process content in a tone that feels right for you. ✨**
 
 ---
 
