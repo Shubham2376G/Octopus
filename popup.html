@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Octopus</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="mainContent">
+        <div class="container">
+            <header>
+                <div class="title">
+                    <img src="images/icon48.png" alt="Octopus Icon" class="Octopus-icon">
+                    <h1>Octopus</h1>
+                </div>
+            </header>
+            <div class="simplification-level">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-wand-magic-sparkles text-icon"></i> 
+                    Vibe Selector
+                    <i class="fa-solid fa-circle-question help-icon" aria-expanded="false"></i>
+                </h2>
+                <div class="button-row" id="simplificationButtonRow">
+                </div>
+                <div id="simplificationGuide" class="simplification-guide">
+                    <p class="helper-text">Pick the vibe that matches how you feel right now</p>
+                    <p></p>
+                    <ul>
+                        <li><strong>🌿 Calm -</strong>Eases overwhelm</li>
+                        <li><strong>💡 Clarity -</strong>Clears confusion</li>
+                        <li><strong>🔥 Spark -</strong>Boosts motivation</li>
+                    </ul>
+                </div>
+
+                
+            </div>
+            <div class="optimization-mode">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-sliders text-icon"></i>
+                    Tabs Selector
+                </h2>
+            
+                <div class="dropdown-container">
+                    <div id="optimizeSelector" class="tab-list">
+                    </div>
+                    <p id="tabSelectInfo" class="info-text">
+                        Select at least 2 and at most 3 tabs.
+                    </p>
+                </div>
+            </div>
+            
+            
+            <!-- Container for buttons (optional, but useful for layout) -->
+            <div style="display: flex; gap: 10px; align-items: center;">
+
+                <button id="compareText">
+                    <span id="compareButtonText">Compare</span>
+                    <span id="compareLoader" class="loader" style="display: none;"></span>
+                </button>
+                <!-- Existing Simplify Button -->
+                <button id="simplifyText">
+                    <span id="simplifyButtonText">Apply</span>
+                    <span id="simplifyloader" class="loader" style="display: none;"></span>
+                </button>
+            </div>
+            <!-- Add this just after your buttons div -->
+            <div id="compareResultContainer" class="compare-result hidden" aria-live="polite">
+                <div id="compareResult" class="compare-result__text">
+                <!-- Placeholder text will be injected here by JS -->
+                </div>
+            </div>
+  
+        </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

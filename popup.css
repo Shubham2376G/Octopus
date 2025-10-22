@@ -1,0 +1,462 @@
+body {
+    width: 300px;
+    padding: 0px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.Octopus-icon {
+    width: 24px;
+    height: 24px;
+}
+
+h1 {
+    margin: 0;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+
+.text-icon {
+    font-weight: 600;
+    margin-right: 8px;
+    font-size: 18px;
+    align-self: center;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.section-title i {
+    margin-right: 12px; /* Increased from 8px */
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.help-icon {
+    margin-left: auto;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+}
+
+.helper-text {
+    color: #666;
+    font-size: 12px;
+    margin: 4px 0 0 0;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #000;    
+}
+
+button:hover {
+    background-color: #313131;
+}
+
+/* Styles for the Simplification Level section */
+.simplification-level {
+    margin-bottom: 8px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.simplification-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.simplification-button:hover {
+    background-color: #f5f5f5;
+}
+
+.simplification-button.selected {
+    background-color: #14171A;
+    color: #ffffff;
+    border-color: #14171A;
+}
+
+/* Loader Animation */
+.loader {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-left: 2px solid #3498db;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+    margin-bottom: 8px;
+}
+
+select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Settings Page Styles */
+#simplifyText {
+    background-color: #000000;
+    margin-top: 4px;
+}
+
+#simplifyText:hover {
+    background-color: #333333;
+}
+
+
+
+
+/* Toggle Switch Styles */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-label {
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+/* Slider Styles */
+.slider-container {
+    margin-bottom: 8px;
+}
+
+.slider-container label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.slider-value {
+    color: #666;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: #e5e5e5;
+    border-radius: 2px;
+    appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #14171A;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Helper guide styles */
+.simplification-guide, 
+.optimize-guide {
+    position: relative;
+    visibility: hidden;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 0;
+    margin-top: 0;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(-8px);
+}
+
+.simplification-guide.expanded,
+.optimize-guide.expanded {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    padding: 12px;
+    margin-top: 8px;
+    transform: translateY(0);
+}
+
+.simplification-guide ul,
+.optimize-guide ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.simplification-guide li,
+.optimize-guide li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.optimize-guide li i {
+    color: #000000;
+    margin-top: 2px;
+}
+
+.optimize-guide li div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keep existing structure compatibility */
+.optimization-mode {
+    margin: 15px 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.text-icon {
+    margin-right: 8px;
+    color: #4a90e2;
+}
+
+.help-icon {
+    margin-left: auto;
+    cursor: pointer;
+    color: #888;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Tab list styling */
+.tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+/* Individual tab card */
+.tab-item {
+    display: block;
+    cursor: pointer;
+}
+
+.tab-item input[type="checkbox"] {
+    display: none;
+}
+
+.tab-card {
+    display: flex;
+    align-items: center;
+    gap: 6px;              /* was 10px — tighter spacing */
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 8px;    /* was 10px — slightly smaller corners */
+    padding: 5px 8px;      /* was 8px 12px — reduces card size */
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* subtler shadow */
+}
+
+
+.tab-card:hover {
+    background: #eef4ff;
+}
+
+.tab-item input[type="checkbox"]:checked + .tab-card {
+    border-color: #4a90e2;
+    background: #e8f0ff;
+    box-shadow: 0 0 6px rgba(74,144,226,0.3);
+}
+
+/* Favicon + title styling */
+.tab-favicon img {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.tab-title {
+    flex: 1;
+    font-size: 0.9em;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info-text {
+    font-size: 0.8em;
+    color: #777;
+    text-align: center;
+    margin-top: 4px;
+}
+
+
+/* Compare result box */
+.compare-result {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f7f9fc;
+    box-shadow: 0 1px 3px rgba(16,24,40,0.04);
+    border: 1px solid rgba(16,24,40,0.04);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #111827;
+  }
+  
+  /* Hidden utility */
+  .hidden {
+    display: none;
+  }
+  
+  /* Simple subtle heading inside result (optional) */
+  .compare-result__text p {
+    margin: 0;
+    line-height: 1.45;
+  }
+  
+
+  
+  /* Optional: style for the Compare button to show it's busy */
+  button.busy {
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  
+
+
+#resetDefaults {
+    background-color: #e5e5e5;
+    color: #2c3e50;
+}
+
+#resetDefaults:hover {
+    background-color: #d5d5d5;
+}
