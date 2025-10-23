@@ -52,7 +52,7 @@ Octopus connects with Chrome’s built-in **Gemini Nano Prompt API** to understa
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/[your-username]/octopus
+   git clone https://github.com/Shubham2376G/Octopus
    ```
 2. Open Chrome Dev or Canary.
 3. Navigate to:
@@ -63,28 +63,23 @@ Octopus connects with Chrome’s built-in **Gemini Nano Prompt API** to understa
 4. Enable **Developer mode** (top-right corner toggle).
 5. Click **Load unpacked**.
 6. Select the cloned `octopus` directory.
-7. Octopus should now appear in your Chrome toolbar
+7. Octopus should now appear in your Chrome toolbar.
 
+> **Note:** If you encounter any issues, try refreshing the tab.
 
 ---
 
 ## 🤝 Credits & Acknowledgments
 
-This project was originally built upon the complete Chrome extension repository *Mochi*, which served as the structural foundation for Octopus.
+This project was originally built upon the Chrome extension repository *Mochi*, which served as the structural foundation for Octopus.
 We extensively modified, refactored, and expanded it to include vibe-based content comparison and rewriting system that powers Octopus today.
 
 Massive thanks to *Tan Han Wei* for his open-source contribution, which made rapid development of Octopus possible.
 
 ---
 
-## 🧭 Vision
+<h2 align="center">
+✨ <strong>Octopus doesn’t just compare content,<br>
+it compares vibes</strong> ✨
+</h2>
 
-Octopus reimagines browsing as an emotional experience, not just an informational one. It’s your **AI compass for digital clarity**, helping you:
-
-> **Choose better. Feel lighter. Think clearly.**
-
----
-
-## 🪄 Tagline
-
-> **Octopus doesn’t just compare content, it compares vibes.**
