@@ -279,11 +279,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2) map level to an instruction string you want the AI to follow
     const levelInstructions = {
-        '1': 'Compare the given website content through the Calm lens. Focus on how relaxed, simple, and soothing it feels to read — considering tone, layout, and clarity. In 1–2 sentences, explain why {name of that website} website best supports calmness or reduces overwhelm for the user than anther website.',
+        '1': 'Compare the given website content through the Calm lens. Focus on how relaxed, simple, and soothing it feels to read — considering tone, layout, and clarity. In Strictly 1–2 sentences, justify why {title of that website} website best supports calmness or reduces overwhelm for the user than anther websites.',
         
-        '2': 'Compare the given website content through the Clarity lens. Evaluate how clearly it communicates ideas, stays organized, and provides useful takeaways without fluff. In 1–2 sentences, justify why {name of that website} website offers better clarity and balanced understanding for the user than anther website.',
+        '2': 'Compare the given website content through the Clarity lens. Evaluate how clearly it communicates ideas, stays organized, and provides useful takeaways without fluff. In Strictly 1–2 sentences, justify why {title of that website} website offers better clarity and balanced understanding for the user than anther websites.',
         
-        '3': 'Compare the given website content through the Spark lens. Focus on how motivating, energizing, and creatively engaging it feels — does it inspire curiosity or action? In 1–2 sentences, explain why {name of that website} website best ignites interest or motivation for the user than anther website.'
+        '3': 'Compare the given website content through the Spark lens. Focus on how motivating, energizing, and creatively engaging it feels — does it inspire curiosity or action? In Strictly 1–2 sentences, justify why {title of that website} website best ignites interest or motivation for the user than anther websites.'
     };
     
 
@@ -446,39 +446,66 @@ document.addEventListener('DOMContentLoaded', function() {
             const websites = {}; // we'll store tabTitle -> content
             const tabNames = {}; // optional: store tab info by id
     
+            // for (let i = 0; i < selectedTabIds.length; i++) {
+            //     const tabId = selectedTabIds[i];
+    
+            //     // ✅ Get tab info (title + URL)
+            //     const [tab] = await chrome.tabs.query({ active: false, windowId: chrome.windows.WINDOW_ID_CURRENT });
+            //     // Alternative if you know the tabId:
+            //     // const tab = await chrome.tabs.get(tabId);
+    
+            //     let response = await askTabForText(tabId);
+    
+            //     if (!response || response.success === false) {
+            //         const fallback = await execScriptExtract(tabId);
+            //         if (fallback && fallback.success) response = fallback;
+            //     }
+    
+            //     const text = (response && response.success && response.text) ? response.text : '';
+    
+            //     // ✅ Use actual tab title (or fallback to URL or generic name)
+            //     const tabLabel = (tab?.title?.length > 60 ? tab.title.slice(0, 60) + '…' : tab.title) || tab.url;
+
+            //     websiteTexts.push({ title: tabLabel, text });
+            //     websites[tabLabel] = text;
+            //     tabNames[`website${i + 1}`] = tabLabel; // optional mapping
+            // }
+
             for (let i = 0; i < selectedTabIds.length; i++) {
                 const tabId = selectedTabIds[i];
-    
-                // ✅ Get tab info (title + URL)
-                const [tab] = await chrome.tabs.query({ active: false, windowId: chrome.windows.WINDOW_ID_CURRENT });
-                // Alternative if you know the tabId:
-                // const tab = await chrome.tabs.get(tabId);
-    
+            
+                // ✅ Get tab info directly by ID
+                const tab = await chrome.tabs.get(tabId);
+            
                 let response = await askTabForText(tabId);
-    
+            
                 if (!response || response.success === false) {
                     const fallback = await execScriptExtract(tabId);
                     if (fallback && fallback.success) response = fallback;
                 }
-    
+            
                 const text = (response && response.success && response.text) ? response.text : '';
-    
-                // ✅ Use actual tab title (or fallback to URL or generic name)
+            
                 const tabLabel = (tab?.title?.length > 60 ? tab.title.slice(0, 60) + '…' : tab.title) || tab.url;
-
+            
                 websiteTexts.push({ title: tabLabel, text });
                 websites[tabLabel] = text;
                 tabNames[`website${i + 1}`] = tabLabel; // optional mapping
             }
+            
     
             // Build the AI input with readable tab names
             const aiInput = websiteTexts
-                .map(({ title, text }, idx) => `=== [${title}] (tabId: ${selectedTabIds[idx]}) ===\n${text}\n`)
+                .map(({ title, text }) => `Title: ${title}\n${text}`)
                 .join('\n\n---\n\n');
-    
+
             compareResult.innerHTML = `<p><strong>Collected ${websiteTexts.length} pages. Preparing comparison...</strong></p>`;
             compareResultContainer.classList.remove('hidden');
     
+
+            // window.open().document.write('<pre>' + aiInput.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</pre>');
+
+
             const aiHtml = await simulateAiResponseWithInput(aiInput, websites);
             compareResult.innerHTML = aiHtml;
             compareResultContainer.classList.remove('hidden');

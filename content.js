@@ -455,16 +455,92 @@ async function handleSimplify(sendResponse) {
                 }
 
                 // Ensure style element for simplified-text only exists once
+                // if (!document.getElementById('simplified-text-styles')) {
+                //     const s = document.createElement('style');
+                //     s.id = 'simplified-text-styles';
+                //     s.textContent = `
+                //         .simplified-text{padding-left:5px;padding-right:5px;margin:10px 0;line-height:1.6;font-weight:400;}
+                //         .simplified-text ul,.simplified-text ol{margin-left:20px;}
+                //         .original-text-tooltip{position:absolute;max-width:400px;background-color:rgba(0,0,0,0.85);color:white;padding:10px;border-radius:5px;font-size:14px;z-index:10000;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+                //     `;
+                //     document.head.appendChild(s);
+                // }
+                // if (!document.getElementById('simplified-text-styles')) {
+                //     const s = document.createElement('style');
+                //     s.id = 'simplified-text-styles';
+                //     s.textContent = `
+                //         .simplified-text {
+                //             padding-left: 5px;
+                //             padding-right: 5px;
+                //             margin: 10px 0;
+                //             line-height: 1.6;
+                //             font-weight: 400;
+                //             font-family: "Medium Content", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                //         }
+                //         .simplified-text ul,
+                //         .simplified-text ol {
+                //             margin-left: 20px;
+                //         }
+                //         .original-text-tooltip {
+                //             position: absolute;
+                //             max-width: 400px;
+                //             background-color: rgba(0,0,0,0.85);
+                //             color: white;
+                //             padding: 10px;
+                //             border-radius: 5px;
+                //             font-size: 14px;
+                //             z-index: 10000;
+                //             pointer-events: none;
+                //             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                //             font-family: "Medium Content", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                //         }
+                //     `;
+                //     document.head.appendChild(s);
+                // }
+
                 if (!document.getElementById('simplified-text-styles')) {
                     const s = document.createElement('style');
                     s.id = 'simplified-text-styles';
                     s.textContent = `
-                        .simplified-text{padding-left:5px;padding-right:5px;margin:10px 0;line-height:1.6;font-weight:400;}
-                        .simplified-text ul,.simplified-text ol{margin-left:20px;}
-                        .original-text-tooltip{position:absolute;max-width:400px;background-color:rgba(0,0,0,0.85);color:white;padding:10px;border-radius:5px;font-size:14px;z-index:10000;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+                        .simplified-text {
+                            padding-left: 5px;
+                            padding-right: 5px;
+                            margin: 16px 0; /* matches Medium paragraph spacing */
+                            line-height: 1.7; /* Medium style */
+                            font-weight: 500;
+                            font-size: 20px; /* Medium body size */
+                            font-family: "Source Serif Pro", Georgia, Cambria, "Times New Roman", Times, serif;
+                        }
+                        .simplified-text ul,
+                        .simplified-text ol {
+                            margin-left: 20px;
+                        }
+                        .original-text-tooltip {
+                            position: absolute;
+                            max-width: 400px;
+                            background-color: rgba(0,0,0,0.85);
+                            color: white;
+                            padding: 10px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            line-height: 1.5;
+                            z-index: 10000;
+                            pointer-events: none;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                            font-family: "Source Serif Pro", Georgia, Cambria, "Times New Roman", Times, serif;
+                        }
                     `;
                     document.head.appendChild(s);
                 }
+                
+
+                
+
+                
+        
+                
+
+                
 
                 newEl.classList.add('simplified-text');
 
@@ -530,6 +606,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           sendResponse({ success: true, text });
           return;
         }
+
+        
   
         // retain your existing switch/cases (simplify etc.)
         switch (request.action) {
@@ -567,6 +645,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     })();
     return true; // keep channel open for async
   });
+
 
 
 // ---------- Init on DOM ready ----------
