@@ -54,18 +54,18 @@ Octopus connects with Chrome’s built-in **Gemini Nano Prompt API** to understa
    ```bash
    git clone https://github.com/Shubham2376G/Octopus
    ```
-2. Open Chrome Dev or Canary.
+2. Open Chrome Dev or Canary
 3. Navigate to:
 
    ```
    chrome://extensions/
    ```
-4. Enable **Developer mode** (top-right corner toggle).
-5. Click **Load unpacked**.
-6. Select the cloned `octopus` directory.
-7. Octopus should now appear in your Chrome toolbar.
+4. Enable **Developer mode** (top-right corner toggle)
+5. Click **Load unpacked**
+6. Select the cloned `octopus` directory
+7. Octopus should now appear in your Chrome toolbar
 
-> **Note:** If you encounter any issues, try refreshing the tab.
+> **Note:** If you encounter any issues, try refreshing the tab
 
 ---
 
