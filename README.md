@@ -71,7 +71,7 @@ Octopus connects with Chrome’s built-in **Gemini Nano Prompt API** to understa
 
 ## 🤝 Credits & Acknowledgments
 
-This project was originally built upon the Chrome extension repository *Mochi*, which served as the structural foundation for Octopus.
+This project's design was inspired by prior open-source Chrome extension projects, which served as the structural foundation for Octopus.
 We extensively modified, refactored, and expanded it to include vibe-based content comparison and rewriting system that powers Octopus today.
 
 Massive thanks to *Tan Han Wei* for his open-source contribution, which made rapid development of Octopus possible.
